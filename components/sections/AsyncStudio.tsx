@@ -28,18 +28,20 @@ export function AsyncStudio() {
       title="Async Studio"
       subtitle="Minha startup/estúdio de desenvolvimento focado em criar soluções eficientes, sob medida e sem burocracia."
       technicalTag="workspace --featured"
+      className="lg:py-12 xl:py-14"
+      headerClassName="lg:mb-8"
     >
-      <div className="relative rounded-md border border-terminal-orange/25 bg-panel-bg/80 p-6 md:p-10 shadow-2xl overflow-hidden group">
+      <div className="group relative overflow-hidden rounded-md border border-terminal-orange/25 bg-panel-bg/80 p-5 shadow-2xl md:p-7 lg:p-8">
         
         {/* Subtle mesh background + glowing circular nebulae */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,96,38,0.035)_1px,transparent_1px)] bg-[size:32px] pointer-events-none" />
         <div className="absolute -top-[30%] -right-[10%] w-[350px] h-[350px] rounded-full bg-terminal-orange/10 blur-[80px] pointer-events-none group-hover:bg-terminal-orange/15 transition-all duration-500" />
         <div className="absolute -bottom-[30%] -left-[10%] w-[350px] h-[350px] rounded-full bg-syntax-yellow/5 blur-[80px] pointer-events-none transition-all duration-500" />
 
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="relative z-10 grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
           
           {/* Left Text Block */}
-          <div className="lg:col-span-7 flex flex-col gap-5">
+          <div className="flex flex-col gap-4 lg:col-span-7">
             
             {/* Startup Brand Tag */}
             <div className="inline-flex self-start items-center gap-2 px-3 py-1 rounded-sm border border-terminal-orange/30 bg-terminal-orange/10 font-mono text-xs text-terminal-orange-soft">
@@ -48,7 +50,7 @@ export function AsyncStudio() {
             </div>
 
             {/* Main Tagline */}
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            <h3 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl xl:text-4xl">
               Desenvolvimento de software{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-terminal-orange to-syntax-yellow">
                 sem travas.
@@ -56,12 +58,12 @@ export function AsyncStudio() {
             </h3>
 
             {/* Description */}
-            <p className="text-sm md:text-base text-zinc-400 font-sans leading-relaxed">
+            <p className="font-sans text-sm leading-relaxed text-zinc-400 md:text-[15px]">
               A Async Studio é um estúdio de desenvolvimento de software focado em sites profissionais, landing pages, sistemas sob medida, web apps, SaaS, MVPs e automações inteligentes para pequenos negócios, MEIs, autônomos e startups em fase inicial.
             </p>
 
             {/* Services Bullet list */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <div className="mt-1 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               {services.map((service) => (
                 <div key={service} className="flex items-center gap-2 font-sans text-xs text-zinc-300">
                   <CheckCircle2 className="w-4 h-4 text-terminal-green flex-shrink-0" />
@@ -71,7 +73,7 @@ export function AsyncStudio() {
             </div>
 
             {/* Social redirection CTA */}
-            <div className="flex items-center gap-4 mt-4">
+            <div className="mt-2 flex items-center gap-4">
               <a
                 href={siteConfig.instagram}
                 target="_blank"
@@ -88,7 +90,7 @@ export function AsyncStudio() {
 
           {/* Right Metrics Panel Representation */}
           <div className="lg:col-span-5 w-full">
-            <div className="rounded-md border border-white/[0.08] bg-bg-deep/90 p-6 shadow-inner font-mono text-xs text-zinc-400 flex flex-col gap-4">
+            <div className="flex flex-col gap-3 rounded-md border border-white/[0.08] bg-bg-deep/90 p-5 font-mono text-xs text-zinc-400 shadow-inner">
               
               <div className="flex items-center justify-between border-b border-zinc-900 pb-3 mb-1">
                 <span className="text-zinc-500 uppercase tracking-widest text-[9px]">workspace_statistics</span>

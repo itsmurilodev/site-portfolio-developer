@@ -43,6 +43,8 @@
   
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 0.75rem;
+    scroll-padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
     background-color: var(--bg-main);
     color: var(--text-main);
     -webkit-font-smoothing: antialiased;
@@ -60,6 +62,11 @@
   }
 
   @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 0;
+      scroll-padding-bottom: 0;
+    }
+
     body {
       padding-bottom: 0;
     }

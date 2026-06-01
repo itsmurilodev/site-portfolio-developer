@@ -8,6 +8,9 @@ interface SectionShellProps extends React.HTMLAttributes<HTMLDivElement> {
   subtitle?: string;
   technicalTag?: string; // e.g. whoami, skills.system.json, repositories
   className?: string;
+  containerClassName?: string;
+  headerClassName?: string;
+  contentClassName?: string;
 }
 
 export function SectionShell({
@@ -17,41 +20,44 @@ export function SectionShell({
   subtitle,
   technicalTag,
   className,
+  containerClassName,
+  headerClassName,
+  contentClassName,
   ...props
 }: SectionShellProps) {
   return (
     <section
       id={id}
       className={cn(
-        "py-16 md:py-24 border-b border-white/[0.07] scroll-mt-8 relative",
+        "relative min-h-[100svh] scroll-mt-0 border-b border-white/[0.07] py-10 sm:py-12 lg:py-14 xl:py-16",
         className
       )}
       {...props}
     >
       {/* Container sizing */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={cn("mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 xl:max-w-7xl", containerClassName)}>
         
         {/* Header Block */}
-        <div className="mb-12 md:mb-16">
+        <div className={cn("mb-7 md:mb-9 lg:mb-10", headerClassName)}>
           {technicalTag && (
             <span className="inline-block font-mono text-[10px] uppercase tracking-wider text-terminal-orange-soft mb-2 border border-terminal-orange/25 bg-terminal-orange/5 px-2.5 py-0.5 rounded-sm select-none">
               $ {technicalTag}
             </span>
           )}
           
-          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
+          <h2 className="mb-2 text-2xl font-extrabold text-white md:text-3xl">
             {title}
           </h2>
           
           {subtitle && (
-            <p className="text-sm md:text-base text-zinc-400 font-sans max-w-2xl leading-relaxed">
+            <p className="max-w-2xl font-sans text-sm leading-relaxed text-zinc-400 md:text-[15px]">
               {subtitle}
             </p>
           )}
         </div>
 
         {/* Section Contents */}
-        <div className="relative z-10">{children}</div>
+        <div className={cn("relative z-10", contentClassName)}>{children}</div>
       </div>
     </section>
   );

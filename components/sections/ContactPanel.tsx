@@ -35,12 +35,14 @@ export function ContactPanel() {
       title="Contato & Conexão"
       subtitle="Vamos criar soluções reais juntos? Escolha o melhor canal técnico para falar comigo."
       technicalTag="./contact.exe"
+      className="lg:py-12 xl:py-14"
+      headerClassName="lg:mb-8"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12 lg:gap-8">
         
         {/* Left Panel: visual contact.json schema representation */}
         <div className="lg:col-span-6 flex flex-col">
-          <TerminalWindow title="contact_info.json" className="flex-1 min-h-[280px]">
+          <TerminalWindow title="contact_info.json" className="min-h-[260px] flex-1">
             <div className="text-[10px] text-zinc-500 mb-3 font-mono leading-relaxed select-none">
               {"// Informações de contato expostas no barramento de dados"}
             </div>
@@ -91,7 +93,7 @@ export function ContactPanel() {
         </div>
 
         {/* Right Panel: CTA communication cards */}
-        <div className="lg:col-span-6 flex flex-col justify-between gap-4">
+        <div className="flex flex-col justify-between gap-4 lg:col-span-6">
           
           {/* Main Email and Whatsapp CTAs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -99,7 +101,7 @@ export function ContactPanel() {
             {/* Email CTA */}
             <a
               href={`mailto:${siteConfig.email}`}
-              className="rounded-md border border-white/[0.08] bg-panel-bg/80 p-5 transition-all duration-300 hover:border-terminal-orange/40 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)] flex flex-col justify-between gap-4 group focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
+              className="group flex flex-col justify-between gap-4 rounded-md border border-white/[0.08] bg-panel-bg/80 p-4 outline-none transition-all duration-300 hover:border-terminal-orange/40 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)] focus-visible:ring-2 focus-visible:ring-terminal-orange md:p-5"
               aria-label={`Enviar um e-mail para ${siteConfig.email}`}
             >
               <div className="w-10 h-10 rounded-sm bg-bg-deep border border-white/[0.08] group-hover:border-terminal-orange/40 flex items-center justify-center transition-all">
@@ -120,7 +122,7 @@ export function ContactPanel() {
               href={siteConfig.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md border border-white/[0.08] bg-panel-bg/80 p-5 transition-all duration-300 hover:border-terminal-orange/40 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)] flex flex-col justify-between gap-4 group focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
+              className="group flex flex-col justify-between gap-4 rounded-md border border-white/[0.08] bg-panel-bg/80 p-4 outline-none transition-all duration-300 hover:border-terminal-orange/40 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)] focus-visible:ring-2 focus-visible:ring-terminal-orange md:p-5"
               aria-label="Iniciar conversa no WhatsApp"
             >
               <div className="w-10 h-10 rounded-sm bg-bg-deep border border-white/[0.08] group-hover:border-terminal-orange/40 flex items-center justify-center transition-all">
@@ -139,7 +141,7 @@ export function ContactPanel() {
           </div>
 
           {/* Social connection rows */}
-          <div className="rounded-md border border-white/[0.08] bg-panel-bg/65 p-5 flex flex-col gap-3">
+          <div className="flex flex-col gap-3 rounded-md border border-white/[0.08] bg-panel-bg/65 p-4 md:p-5">
             <h4 className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest border-b border-zinc-900 pb-2.5">
               outros canais
             </h4>

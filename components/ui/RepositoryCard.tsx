@@ -33,7 +33,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
   return (
     <div
       className={cn(
-        "group relative flex flex-col justify-between rounded-md border bg-panel-bg/80 p-6 transition-all duration-300 shadow-[0_12px_36px_rgba(0,0,0,0.42)]",
+        "group relative flex flex-col justify-between rounded-md border bg-panel-bg/80 p-4 transition-all duration-300 shadow-[0_12px_36px_rgba(0,0,0,0.42)] md:p-5",
         categoryGlowStyles[project.category] || "border-zinc-800",
         className
       )}
@@ -42,7 +42,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
       <div className="absolute inset-0 rounded-md bg-gradient-to-br from-terminal-orange/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
 
       {/* Main Content */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3.5">
         {/* Header Title & Tags */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2">
@@ -63,12 +63,12 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
         </div>
 
         {/* Description */}
-        <p className="text-sm text-zinc-400 font-sans leading-relaxed">
+        <p className="font-sans text-sm leading-relaxed text-zinc-400">
           {project.description}
         </p>
 
         {/* Aprendizado / Problema Resolvido */}
-        <div className="rounded-lg border border-zinc-900 bg-zinc-900/30 p-3 mt-1">
+        <div className="mt-0.5 rounded-md border border-zinc-900 bg-zinc-900/30 p-3">
           <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-terminal-orange-soft mb-1">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Aprendizado / Solução técnica</span>
@@ -79,7 +79,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
         </div>
 
         {/* Stack Tags */}
-        <div className="flex flex-wrap gap-1.5 mt-2">
+        <div className="mt-1 flex flex-wrap gap-1.5">
           {project.stack.map((tech) => (
             <span
               key={tech}
@@ -92,7 +92,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
       </div>
 
       {/* Action Footer */}
-      <div className="flex items-center justify-between border-t border-zinc-900 pt-4 mt-5">
+      <div className="mt-4 flex items-center justify-between border-t border-zinc-900 pt-3.5">
         <span className="text-[10px] font-mono text-zinc-500">
           status: <span className="text-emerald-400 font-bold">active</span>
         </span>

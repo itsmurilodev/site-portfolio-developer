@@ -21,14 +21,16 @@ export function SkillsSystem() {
       title="Habilidades & Stack"
       subtitle="Meu arsenal tecnológico organizado em quatro pilares técnicos essenciais para soluções digitais."
       technicalTag="skills.system.json"
+      className="lg:py-12 xl:py-14"
+      headerClassName="lg:mb-8"
     >
       {/* Wrap everything in our client-side DOM Highlighter wrapper */}
       <SkillsHighlighter>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-6 xl:gap-8">
           
           {/* Left Side: Visual Code Editor with JSON */}
           <div className="lg:col-span-5 flex flex-col">
-            <TerminalWindow title="skills.system.json" className="min-h-[350px]">
+            <TerminalWindow title="skills.system.json" className="min-h-[320px] max-h-[min(470px,58svh)]">
               {/* Informational Hint */}
               <div className="text-[10px] text-zinc-500 mb-3 font-mono leading-relaxed select-none">
                 {"// Passe o mouse pelas propriedades para destacar as seções correspondentes"}
@@ -60,12 +62,12 @@ export function SkillsSystem() {
           </div>
 
           {/* Right Side: Skill Pilar Cards (Fully SSR loaded for SEO) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-7 lg:gap-4">
             {skillsData.map((pilar, index) => {
               return (
                 <div
                   key={pilar.title}
-                  className="rounded-md border border-white/[0.08] p-5 bg-panel-bg/75 transition-all duration-300 flex flex-col justify-between h-full shadow-lg relative overflow-hidden group cursor-pointer hover:border-terminal-orange/35 hover:bg-panel-light/80"
+                  className="group relative flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-md border border-white/[0.08] bg-panel-bg/75 p-4 shadow-lg transition-all duration-300 hover:border-terminal-orange/35 hover:bg-panel-light/80"
                   data-pillar-card={index}
                 >
                   {/* Visual top border glow */}
@@ -73,7 +75,7 @@ export function SkillsSystem() {
 
                   <div>
                     {/* Card Header (Icon, Title, Status badge) */}
-                    <div className="flex items-start justify-between gap-2 border-b border-zinc-900/60 pb-3 mb-4">
+                    <div className="mb-3 flex items-start justify-between gap-2 border-b border-zinc-900/60 pb-2.5">
                       <div className="flex items-center gap-2.5">
                         {pilarIcons[index]}
                         <h3 className="font-mono text-sm font-bold text-zinc-100 group-hover:text-white leading-none">
@@ -83,12 +85,12 @@ export function SkillsSystem() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs text-zinc-400 font-sans leading-relaxed mb-4 min-h-[36px]">
+                    <p className="mb-3 min-h-[34px] font-sans text-xs leading-relaxed text-zinc-400">
                       {pilar.description}
                     </p>
 
                     {/* Skills tags list */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
+                    <div className="mb-4 flex flex-wrap gap-1.5">
                       {pilar.skills.map((skill) => (
                         <span
                           key={skill}
@@ -101,7 +103,7 @@ export function SkillsSystem() {
                   </div>
 
                   {/* Status Indicator */}
-                  <div className="border-t border-zinc-900/40 pt-3 mt-auto flex items-center justify-between text-[10px] font-mono">
+                  <div className="mt-auto flex items-center justify-between border-t border-zinc-900/40 pt-3 font-mono text-[10px]">
                     <span className="text-zinc-600">status:</span>
                     <Badge status={pilar.status}>{pilar.statusLabel}</Badge>
                   </div>

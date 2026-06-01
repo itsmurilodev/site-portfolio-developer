@@ -10,14 +10,16 @@ export function CareerGitLog() {
       title="Jornada & Histórico"
       subtitle="Minha trajetória na tecnologia estruturada como um histórico de commits (git log) de evolução técnica."
       technicalTag="git log --stat --oneline"
+      className="lg:py-12 xl:py-14"
+      headerClassName="lg:mb-8"
     >
-      <div className="relative w-full max-w-4xl mx-auto pl-6 sm:pl-10">
+      <div className="relative mx-auto w-full max-w-5xl pl-6 sm:pl-10">
         
         {/* Vertical Git Branch SVG Line */}
         <div className="absolute left-[11px] sm:left-[19px] top-4 bottom-4 w-px bg-gradient-to-b from-terminal-orange via-terminal-green to-zinc-700" />
 
         {/* Timeline Entries (Commits) */}
-        <div className="flex flex-col gap-8 md:gap-10">
+        <div className="flex flex-col gap-5 md:gap-6">
           {timelineData.map((commit) => {
             return (
               <div key={commit.hash} className="relative group">
@@ -28,10 +30,10 @@ export function CareerGitLog() {
                 </div>
 
                 {/* Commit Card Container */}
-                <div className="rounded-md border border-white/[0.08] bg-panel-bg/80 p-5 transition-all duration-300 hover:border-terminal-orange/35 shadow-[0_12px_30px_rgba(0,0,0,0.36)]">
+                <div className="rounded-md border border-white/[0.08] bg-panel-bg/80 p-4 shadow-[0_12px_30px_rgba(0,0,0,0.36)] transition-all duration-300 hover:border-terminal-orange/35 md:p-5">
                   
                   {/* Card Header (Commit Hash, Date, Author) */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-900 pb-3 mb-4 text-[11px] font-mono text-zinc-500">
+                  <div className="mb-3 flex flex-col justify-between gap-2 border-b border-zinc-900 pb-3 font-mono text-[11px] text-zinc-500 sm:flex-row sm:items-center">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-terminal-orange font-bold">commit {commit.hash}</span>
                       <span className="text-zinc-700">|</span>
@@ -48,13 +50,13 @@ export function CareerGitLog() {
                   </div>
 
                   {/* Message Title (Commit Subject) */}
-                  <h3 className="text-base font-bold text-white font-mono flex items-center gap-2 mb-3">
+                  <h3 className="mb-2.5 flex items-center gap-2 font-mono text-base font-bold text-white">
                     <GitBranch className="w-4 h-4 text-terminal-green flex-shrink-0" />
                     <span>{commit.subject}</span>
                   </h3>
 
                   {/* Body Text */}
-                  <p className="text-sm text-zinc-400 font-sans leading-relaxed mb-4">
+                  <p className="mb-3 text-sm leading-relaxed text-zinc-400">
                     {commit.body}
                   </p>
 
