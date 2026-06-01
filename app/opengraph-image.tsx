@@ -15,10 +15,10 @@ export default async function Image() {
     (
       <div
         style={{
-          backgroundColor: "#07050f",
+          backgroundColor: "#252525",
           backgroundSize: "40px 40px",
           backgroundImage: 
-            "linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(255, 96, 38, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 96, 38, 0.06) 1px, transparent 1px)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -38,7 +38,7 @@ export default async function Image() {
             width: "500px",
             height: "500px",
             borderRadius: "500px",
-            backgroundColor: "rgba(139, 92, 246, 0.08)",
+            backgroundColor: "rgba(255, 96, 38, 0.12)",
             filter: "blur(100px)",
           }}
         />
@@ -50,7 +50,7 @@ export default async function Image() {
             width: "500px",
             height: "500px",
             borderRadius: "500px",
-            backgroundColor: "rgba(6, 182, 212, 0.08)",
+            backgroundColor: "rgba(250, 204, 21, 0.06)",
             filter: "blur(100px)",
           }}
         />
@@ -71,7 +71,7 @@ export default async function Image() {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-              color: "#06b6d4",
+              color: "#ff8a4c",
               fontSize: "20px",
               fontWeight: "bold",
             }}
@@ -105,7 +105,7 @@ export default async function Image() {
               fontWeight: 900,
               color: "#ffffff",
               margin: 0,
-              letterSpacing: "-2px",
+              letterSpacing: "0",
             }}
           >
             {siteConfig.name}
@@ -115,7 +115,7 @@ export default async function Image() {
               fontSize: "24px",
               color: "#a1a1aa",
               margin: 0,
-              borderLeft: "4px solid #06b6d4",
+              borderLeft: "4px solid #ff5c24",
               paddingLeft: "20px",
               lineHeight: "1.4",
               maxWidth: "850px",
@@ -146,11 +146,11 @@ export default async function Image() {
           >
             <div>
               <span style={{ color: "rgba(255,255,255,0.2)" }}>host: </span>
-              <span style={{ color: "#06b6d4" }}>murilo.dev</span>
+              <span style={{ color: "#ff8a4c" }}>murilo.dev</span>
             </div>
             <div>
               <span style={{ color: "rgba(255,255,255,0.2)" }}>focus: </span>
-              <span style={{ color: "#8b5cf6" }}>Backend • DevOps • Automation</span>
+              <span style={{ color: "#22c55e" }}>Backend • DevOps • Automation</span>
             </div>
           </div>
 

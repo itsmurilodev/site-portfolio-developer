@@ -34,55 +34,55 @@ export function ContactPanel() {
       id="contact"
       title="Contato & Conexão"
       subtitle="Vamos criar soluções reais juntos? Escolha o melhor canal técnico para falar comigo."
-      technicalTag="contact.exe"
+      technicalTag="./contact.exe"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         {/* Left Panel: visual contact.json schema representation */}
         <div className="lg:col-span-6 flex flex-col">
-          <TerminalWindow title="contact.json" className="flex-1 min-h-[280px]">
+          <TerminalWindow title="contact_info.json" className="flex-1 min-h-[280px]">
             <div className="text-[10px] text-zinc-500 mb-3 font-mono leading-relaxed select-none">
               {"// Informações de contato expostas no barramento de dados"}
             </div>
 
-            <pre className="font-mono text-xs text-zinc-300 py-3 bg-zinc-950 rounded-lg overflow-x-auto pl-3">
+            <pre className="font-mono text-xs text-zinc-300 py-3 bg-bg-deep rounded-sm border border-white/[0.05] overflow-x-auto pl-3">
               <code>
                 <span className="text-zinc-500 font-semibold">&#123;</span>
                 {"\n"}
                 {"  "}
-                <span className="text-cyan-400 font-bold">&quot;status&quot;</span>
+                <span className="text-syntax-blue font-bold">&quot;status&quot;</span>
                 <span className="text-zinc-500">:</span>{" "}
-                <span className="text-amber-300">&quot;available&quot;</span>
+                <span className="text-terminal-green">&quot;available&quot;</span>
                 <span className="text-zinc-500">,</span>
                 {"\n"}
                 {"  "}
-                <span className="text-cyan-400 font-bold">&quot;linkedin&quot;</span>
+                <span className="text-syntax-blue font-bold">&quot;linkedin&quot;</span>
                 <span className="text-zinc-500">:</span>{" "}
-                <span className="text-amber-300">&quot;{siteConfig.linkedin}&quot;</span>
+                <span className="text-terminal-green">&quot;{siteConfig.linkedin}&quot;</span>
                 <span className="text-zinc-500">,</span>
                 {"\n"}
                 {"  "}
-                <span className="text-cyan-400 font-bold">&quot;instagram&quot;</span>
+                <span className="text-syntax-blue font-bold">&quot;instagram&quot;</span>
                 <span className="text-zinc-500">:</span>{" "}
-                <span className="text-amber-300">&quot;@asyncstudiodev&quot;</span>
+                <span className="text-terminal-green">&quot;@asyncstudiodev&quot;</span>
                 <span className="text-zinc-500">,</span>
                 {"\n"}
                 {"  "}
-                <span className="text-cyan-400 font-bold">&quot;github&quot;</span>
+                <span className="text-syntax-blue font-bold">&quot;github&quot;</span>
                 <span className="text-zinc-500">:</span>{" "}
-                <span className="text-amber-300">&quot;{siteConfig.github}&quot;</span>
+                <span className="text-terminal-green">&quot;{siteConfig.github}&quot;</span>
                 <span className="text-zinc-500">,</span>
                 {"\n"}
                 {"  "}
-                <span className="text-cyan-400 font-bold">&quot;location&quot;</span>
+                <span className="text-syntax-blue font-bold">&quot;location&quot;</span>
                 <span className="text-zinc-500">:</span>{" "}
-                <span className="text-amber-300">&quot;{siteConfig.location}&quot;</span>
+                <span className="text-terminal-green">&quot;{siteConfig.location}&quot;</span>
                 <span className="text-zinc-500">,</span>
                 {"\n"}
                 {"  "}
-                <span className="text-cyan-400 font-bold">&quot;email&quot;</span>
+                <span className="text-syntax-blue font-bold">&quot;email&quot;</span>
                 <span className="text-zinc-500">:</span>{" "}
-                <span className="text-amber-300">&quot;{siteConfig.email}&quot;</span>
+                <span className="text-terminal-green">&quot;{siteConfig.email}&quot;</span>
                 {"\n"}
                 <span className="text-zinc-500 font-semibold">&#125;</span>
               </code>
@@ -99,11 +99,11 @@ export function ContactPanel() {
             {/* Email CTA */}
             <a
               href={`mailto:${siteConfig.email}`}
-              className="rounded-xl border border-zinc-900 bg-zinc-950/60 p-5 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/30 hover:shadow-[0_0_24px_rgba(6,182,212,0.1)] flex flex-col justify-between gap-4 group focus-visible:ring-2 focus-visible:ring-cyan-500 outline-none"
+              className="rounded-md border border-white/[0.08] bg-panel-bg/80 p-5 transition-all duration-300 hover:border-terminal-orange/40 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)] flex flex-col justify-between gap-4 group focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
               aria-label={`Enviar um e-mail para ${siteConfig.email}`}
             >
-              <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-cyan-500/30 flex items-center justify-center transition-all">
-                <Mail className="w-5 h-5 text-cyan-400" />
+              <div className="w-10 h-10 rounded-sm bg-bg-deep border border-white/[0.08] group-hover:border-terminal-orange/40 flex items-center justify-center transition-all">
+                <Mail className="w-5 h-5 text-terminal-orange" />
               </div>
               <div>
                 <h3 className="font-mono text-sm font-bold text-zinc-100 mb-1">
@@ -120,11 +120,11 @@ export function ContactPanel() {
               href={siteConfig.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border border-zinc-900 bg-zinc-950/60 p-5 backdrop-blur-md transition-all duration-300 hover:border-purple-500/30 hover:shadow-[0_0_24px_rgba(139,92,246,0.1)] flex flex-col justify-between gap-4 group focus-visible:ring-2 focus-visible:ring-purple-500 outline-none"
+              className="rounded-md border border-white/[0.08] bg-panel-bg/80 p-5 transition-all duration-300 hover:border-terminal-orange/40 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)] flex flex-col justify-between gap-4 group focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
               aria-label="Iniciar conversa no WhatsApp"
             >
-              <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-purple-500/30 flex items-center justify-center transition-all">
-                <MessageSquare className="w-5 h-5 text-purple-400" />
+              <div className="w-10 h-10 rounded-sm bg-bg-deep border border-white/[0.08] group-hover:border-terminal-orange/40 flex items-center justify-center transition-all">
+                <MessageSquare className="w-5 h-5 text-terminal-green" />
               </div>
               <div>
                 <h3 className="font-mono text-sm font-bold text-zinc-100 mb-1">
@@ -139,7 +139,7 @@ export function ContactPanel() {
           </div>
 
           {/* Social connection rows */}
-          <div className="rounded-xl border border-zinc-900 bg-zinc-950/30 p-5 backdrop-blur-md flex flex-col gap-3">
+          <div className="rounded-md border border-white/[0.08] bg-panel-bg/65 p-5 flex flex-col gap-3">
             <h4 className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest border-b border-zinc-900 pb-2.5">
               outros canais
             </h4>
@@ -149,7 +149,7 @@ export function ContactPanel() {
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center gap-2 px-3 py-2 border border-zinc-900 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-900/40 hover:border-zinc-850 transition-all focus-visible:ring-2 focus-visible:ring-cyan-500 outline-none"
+                className="flex-1 flex items-center gap-2 px-3 py-2 border border-white/[0.08] rounded-sm text-xs font-mono text-zinc-400 hover:text-terminal-orange-soft hover:bg-bg-deep hover:border-terminal-orange/35 transition-all focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
                 aria-label="Visitar meu perfil no LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4 text-zinc-500 group-hover:text-white" />
@@ -160,7 +160,7 @@ export function ContactPanel() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center gap-2 px-3 py-2 border border-zinc-900 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-900/40 hover:border-zinc-850 transition-all focus-visible:ring-2 focus-visible:ring-cyan-500 outline-none"
+                className="flex-1 flex items-center gap-2 px-3 py-2 border border-white/[0.08] rounded-sm text-xs font-mono text-zinc-400 hover:text-terminal-orange-soft hover:bg-bg-deep hover:border-terminal-orange/35 transition-all focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
                 aria-label="Visitar meu GitHub"
               >
                 <GithubIcon className="w-4 h-4 text-zinc-500 group-hover:text-white" />
@@ -172,7 +172,7 @@ export function ContactPanel() {
               href={siteConfig.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-2 border border-zinc-900 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-900/40 hover:border-zinc-850 transition-all focus-visible:ring-2 focus-visible:ring-purple-500 outline-none"
+              className="flex items-center gap-2 px-3 py-2 border border-white/[0.08] rounded-sm text-xs font-mono text-zinc-400 hover:text-terminal-orange-soft hover:bg-bg-deep hover:border-terminal-orange/35 transition-all focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
               aria-label="Seguir a Async Studio no Instagram"
             >
               <InstagramIcon className="w-4 h-4 text-zinc-500 group-hover:text-white" />

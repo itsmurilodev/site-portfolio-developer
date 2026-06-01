@@ -69,7 +69,7 @@ export default function RootLayout({
       lang="pt-BR" 
       className={`${outfit.variable} ${firaCode.variable} scroll-smooth`}
     >
-      <body className="font-sans antialiased text-zinc-300 bg-[#07050f] min-h-screen flex flex-col justify-between selection:bg-cyan-500/30 selection:text-white">
+      <body className="font-sans antialiased text-zinc-300 bg-bg-main min-h-screen flex flex-col justify-between selection:bg-terminal-orange/30 selection:text-white">
         {children}
       </body>
     </html>

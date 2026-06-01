@@ -31,14 +31,14 @@ export function CodeBlock({ code, className }: CodeBlockProps) {
 
       // 1. Highlight JSON Keys
       htmlLine = htmlLine.replace(keyRegex, (match, key) => {
-        return `<span class="text-cyan-400 font-bold">"${key}"</span>:`;
+        return `<span class="text-syntax-blue font-bold">"${key}"</span>:`;
       });
 
       // 2. Highlight Strings values (anything between quotes after a colon or inside arrays)
-      htmlLine = htmlLine.replace(/: \s*"([^"]+)"/g, ': <span class="text-amber-300">"$1"</span>');
-      htmlLine = htmlLine.replace(/,\s*"([^"]+)"/g, ', <span class="text-amber-300">"$1"</span>');
-      htmlLine = htmlLine.replace(/\[\s*"([^"]+)"/g, '[ <span class="text-amber-300">"$1"</span>');
-      htmlLine = htmlLine.replace(/"([^"]+)"\s*(,\s*|\]\s*)/g, '<span class="text-amber-300">"$1"</span>$2');
+      htmlLine = htmlLine.replace(/: \s*"([^"]+)"/g, ': <span class="text-terminal-green">"$1"</span>');
+      htmlLine = htmlLine.replace(/,\s*"([^"]+)"/g, ', <span class="text-terminal-green">"$1"</span>');
+      htmlLine = htmlLine.replace(/\[\s*"([^"]+)"/g, '[ <span class="text-terminal-green">"$1"</span>');
+      htmlLine = htmlLine.replace(/"([^"]+)"\s*(,\s*|\]\s*)/g, '<span class="text-terminal-green">"$1"</span>$2');
 
       // 3. Highlight braces and brackets
       htmlLine = htmlLine.replace(/([\{\}\[\]])/g, '<span class="text-zinc-500 font-semibold">$1</span>');
@@ -46,7 +46,7 @@ export function CodeBlock({ code, className }: CodeBlockProps) {
       return (
         <div
           key={idx}
-          className="flex items-start font-mono text-xs leading-relaxed select-text py-0.5 px-3 rounded transition-all duration-300"
+          className="flex items-start font-mono text-xs leading-relaxed select-text py-0.5 px-3 rounded-sm transition-all duration-300"
           data-line-key={lineKey || undefined}
         >
           {/* Line number */}
@@ -63,7 +63,7 @@ export function CodeBlock({ code, className }: CodeBlockProps) {
   };
 
   return (
-    <pre className={cn("font-mono text-xs text-zinc-300 py-3 bg-zinc-950 rounded-lg overflow-x-auto", className)}>
+    <pre className={cn("font-mono text-xs text-zinc-300 py-3 bg-bg-deep rounded-sm border border-white/[0.05] overflow-x-auto", className)}>
       <code>{highlightJson(code)}</code>
     </pre>
   );

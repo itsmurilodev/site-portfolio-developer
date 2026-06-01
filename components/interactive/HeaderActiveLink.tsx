@@ -49,10 +49,10 @@ export function HeaderActiveLink({ navLinks }: HeaderActiveLinkProps) {
             key={link.href}
             href={link.href}
             className={cn(
-              "px-3.5 py-1.5 font-mono text-xs rounded-md border transition-all duration-200 focus-visible:ring-2 focus-visible:ring-cyan-500 outline-none",
+              "px-3.5 py-1.5 font-mono text-xs rounded-sm border transition-all duration-200 focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none",
               isActive
-                ? "text-cyan-400 border-zinc-800 bg-zinc-900/50 font-bold shadow-[0_0_12px_rgba(6,182,212,0.05)]"
-                : "text-zinc-400 border-transparent hover:text-zinc-200 hover:bg-zinc-900/30"
+                ? "text-terminal-orange-soft border-terminal-orange/30 bg-terminal-orange/10 font-bold shadow-[0_0_12px_rgba(255,92,36,0.08)]"
+                : "text-zinc-400 border-transparent hover:text-terminal-orange-soft hover:bg-panel-bg"
             )}
           >
             {link.label}

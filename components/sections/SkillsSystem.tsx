@@ -9,10 +9,10 @@ import { skillsData, skillsJsonString } from "@/data/skills";
 
 export function SkillsSystem() {
   const pilarIcons = [
-    <Braces key="web" className="w-5 h-5 text-blue-400" />,
-    <Database key="db" className="w-5 h-5 text-yellow-400" />,
-    <Server key="infra" className="w-5 h-5 text-cyan-400" />,
-    <Settings key="auto" className="w-5 h-5 text-purple-400" />,
+    <Braces key="web" className="w-5 h-5 text-syntax-blue" />,
+    <Database key="db" className="w-5 h-5 text-syntax-yellow" />,
+    <Server key="infra" className="w-5 h-5 text-terminal-green" />,
+    <Settings key="auto" className="w-5 h-5 text-syntax-purple" />,
   ];
 
   return (
@@ -65,11 +65,11 @@ export function SkillsSystem() {
               return (
                 <div
                   key={pilar.title}
-                  className="rounded-xl border border-zinc-850 p-5 bg-zinc-950/[0.01] backdrop-blur-md transition-all duration-300 flex flex-col justify-between h-full shadow-lg relative overflow-hidden group cursor-pointer hover:bg-zinc-950/20"
+                  className="rounded-md border border-white/[0.08] p-5 bg-panel-bg/75 transition-all duration-300 flex flex-col justify-between h-full shadow-lg relative overflow-hidden group cursor-pointer hover:border-terminal-orange/35 hover:bg-panel-light/80"
                   data-pillar-card={index}
                 >
                   {/* Visual top border glow */}
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-terminal-orange/25 to-transparent" />
 
                   <div>
                     {/* Card Header (Icon, Title, Status badge) */}

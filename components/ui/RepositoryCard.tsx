@@ -19,27 +19,27 @@ interface RepositoryCardProps {
 export function RepositoryCard({ project, className }: RepositoryCardProps) {
   // Map category to glowing colors
   const categoryGlowStyles = {
-    "study-project": "border-blue-500/20 hover:border-blue-500/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.1)]",
-    "private-project": "border-purple-500/20 hover:border-purple-500/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.1)]",
-    "real-experience": "border-cyan-500/20 hover:border-cyan-500/40 hover:shadow-[0_0_24px_rgba(6,182,212,0.1)]",
+    "study-project": "border-syntax-blue/20 hover:border-terminal-orange/45 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)]",
+    "private-project": "border-syntax-purple/20 hover:border-terminal-orange/45 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)]",
+    "real-experience": "border-terminal-green/20 hover:border-terminal-orange/45 hover:shadow-[0_0_24px_rgba(255,92,36,0.1)]",
   };
 
   const bulletColor = {
-    "study-project": "bg-blue-400",
-    "private-project": "bg-purple-400",
-    "real-experience": "bg-cyan-400",
+    "study-project": "bg-syntax-blue",
+    "private-project": "bg-syntax-purple",
+    "real-experience": "bg-terminal-green",
   };
 
   return (
     <div
       className={cn(
-        "group relative flex flex-col justify-between rounded-xl border bg-zinc-950/45 p-6 backdrop-blur-md transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.4)]",
+        "group relative flex flex-col justify-between rounded-md border bg-panel-bg/80 p-6 transition-all duration-300 shadow-[0_12px_36px_rgba(0,0,0,0.42)]",
         categoryGlowStyles[project.category] || "border-zinc-800",
         className
       )}
     >
       {/* Light gradient highlight on card hover */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+      <div className="absolute inset-0 rounded-md bg-gradient-to-br from-terminal-orange/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
 
       {/* Main Content */}
       <div className="flex flex-col gap-4">
@@ -47,11 +47,11 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2">
             {project.private ? (
-              <Lock className="w-5 h-5 text-purple-400 flex-shrink-0" />
+              <Lock className="w-5 h-5 text-syntax-purple flex-shrink-0" />
             ) : (
-              <FolderGit2 className="w-5 h-5 text-zinc-400 group-hover:text-cyan-400 transition-colors duration-300 flex-shrink-0" />
+              <FolderGit2 className="w-5 h-5 text-zinc-400 group-hover:text-terminal-orange transition-colors duration-300 flex-shrink-0" />
             )}
-            <h3 className="font-mono text-base font-semibold text-zinc-100 tracking-tight leading-tight group-hover:text-white transition-colors duration-300">
+            <h3 className="font-mono text-base font-semibold text-zinc-100 leading-tight group-hover:text-white transition-colors duration-300">
               {project.name}
             </h3>
           </div>
@@ -69,7 +69,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
 
         {/* Aprendizado / Problema Resolvido */}
         <div className="rounded-lg border border-zinc-900 bg-zinc-900/30 p-3 mt-1">
-          <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-cyan-400 mb-1">
+          <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-terminal-orange-soft mb-1">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Aprendizado / Solução técnica</span>
           </div>
@@ -104,7 +104,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium text-zinc-400 hover:text-white bg-zinc-900 hover:bg-zinc-850 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-cyan-500 outline-none"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-mono font-medium text-zinc-400 hover:text-terminal-orange-soft bg-bg-deep hover:bg-panel-light border border-white/[0.08] hover:border-terminal-orange/40 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
               aria-label={`Ver repositório do projeto ${project.name} no GitHub`}
             >
               <GithubIcon className="w-3.5 h-3.5" />
@@ -114,7 +114,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
           {project.demoUrl && (
             <a
               href={project.demoUrl}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium text-zinc-900 hover:text-white bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 font-semibold focus-visible:ring-2 focus-visible:ring-cyan-500 outline-none shadow-[0_0_12px_rgba(6,182,212,0.15)]"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-mono font-semibold text-terminal-orange-soft hover:text-white bg-bg-deep border border-terminal-orange/40 hover:bg-terminal-orange/10 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none shadow-[0_0_12px_rgba(255,92,36,0.12)]"
               aria-label={`Ver demo ao vivo do projeto ${project.name}`}
             >
               <Eye className="w-3.5 h-3.5" />

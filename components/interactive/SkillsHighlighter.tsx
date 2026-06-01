@@ -71,9 +71,9 @@ export function SkillsHighlighter({ children }: { children: React.ReactNode }) {
         const currentKey = targetLine.getAttribute("data-line-key");
         
         if (currentKey === key) {
-          targetLine.classList.add("bg-purple-500/10", "border-l-2", "border-purple-500", "-ml-[2px]");
+          targetLine.classList.add("bg-terminal-orange/10", "border-l-2", "border-terminal-orange", "-ml-[2px]");
         } else {
-          targetLine.classList.remove("bg-purple-500/10", "border-l-2", "border-purple-500", "-ml-[2px]");
+          targetLine.classList.remove("bg-terminal-orange/10", "border-l-2", "border-terminal-orange", "-ml-[2px]");
         }
       });
     };
@@ -100,7 +100,7 @@ export function SkillsHighlighter({ children }: { children: React.ReactNode }) {
         el.classList.remove("border-active-glow");
       });
       container.querySelectorAll("[data-line-key]").forEach((el) => {
-        el.classList.remove("bg-purple-500/10", "border-l-2", "border-purple-500", "-ml-[2px]");
+        el.classList.remove("bg-terminal-orange/10", "border-l-2", "border-terminal-orange", "-ml-[2px]");
       });
     };
 

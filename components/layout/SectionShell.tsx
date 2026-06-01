@@ -23,7 +23,7 @@ export function SectionShell({
     <section
       id={id}
       className={cn(
-        "py-16 md:py-24 border-b border-zinc-900/60 scroll-mt-20 relative",
+        "py-16 md:py-24 border-b border-white/[0.07] scroll-mt-20 relative",
         className
       )}
       {...props}
@@ -34,12 +34,12 @@ export function SectionShell({
         {/* Header Block */}
         <div className="mb-12 md:mb-16">
           {technicalTag && (
-            <span className="inline-block font-mono text-[10px] uppercase tracking-wider text-cyan-400/80 mb-2 border border-cyan-500/20 bg-cyan-500/5 px-2.5 py-0.5 rounded-full select-none">
+            <span className="inline-block font-mono text-[10px] uppercase tracking-wider text-terminal-orange-soft mb-2 border border-terminal-orange/25 bg-terminal-orange/5 px-2.5 py-0.5 rounded-sm select-none">
               $ {technicalTag}
             </span>
           )}
           
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-3">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
             {title}
           </h2>
           

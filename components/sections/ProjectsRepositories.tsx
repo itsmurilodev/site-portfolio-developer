@@ -18,7 +18,7 @@ export function ProjectsRepositories() {
       id="projects"
       title="Projetos & Repositórios"
       subtitle="Uma seleção de projetos acadêmicos, de estudos práticos e rotinas reais organizados como repositórios de código."
-      technicalTag="ls --repositories"
+      technicalTag="ls -la ~/projects"
     >
       <div className="flex flex-col gap-8">
         {/* Render interactive filter buttons (Client Component) passing computed server counts */}

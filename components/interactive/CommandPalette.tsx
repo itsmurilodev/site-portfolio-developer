@@ -101,7 +101,7 @@ export function CommandPalette() {
 
   return (
     <div
-      className="fixed inset-0 z-[999] flex items-center justify-center bg-[#07050f]/80 p-4 backdrop-blur-sm select-none"
+      className="fixed inset-0 z-[999] flex items-center justify-center bg-bg-deep/85 p-4 backdrop-blur-sm select-none"
       onClick={() => setIsOpen(false)}
       role="dialog"
       aria-modal="true"
@@ -109,12 +109,12 @@ export function CommandPalette() {
     >
       {/* Console Box */}
       <div
-        className="w-full max-w-xl rounded-lg border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden flex flex-col h-[400px]"
+        className="w-full max-w-xl rounded-md border border-white/[0.08] bg-bg-deep shadow-2xl overflow-hidden flex flex-col h-[400px]"
         onClick={(e) => e.stopPropagation()} // Prevent closing
       >
         {/* Top Control Bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800">
-          <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-semibold">
+        <div className="flex items-center justify-between px-4 py-3 bg-panel-light border-b border-white/[0.08]">
+          <div className="flex items-center gap-2 text-terminal-orange-soft font-mono text-xs font-semibold">
             <Terminal className="w-4 h-4" />
             <span>murilo_os://bash</span>
           </div>
@@ -124,7 +124,7 @@ export function CommandPalette() {
             <span className="text-[10px] font-mono text-zinc-500 hidden sm:inline">ESC para fechar</span>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800 border border-transparent transition-all duration-200 outline-none focus-visible:ring-1 focus-visible:ring-cyan-500"
+              className="p-1 rounded-sm text-zinc-500 hover:text-terminal-orange-soft hover:bg-bg-deep border border-transparent transition-all duration-200 outline-none focus-visible:ring-1 focus-visible:ring-terminal-orange"
               aria-label="Fechar terminal de comandos"
             >
               <X className="w-3.5 h-3.5" />
@@ -133,10 +133,10 @@ export function CommandPalette() {
         </div>
 
         {/* History Log */}
-        <div className="flex-1 p-4 overflow-y-auto font-mono text-xs text-zinc-300 flex flex-col gap-3 select-text bg-zinc-950/80 scrollbar-thin scrollbar-thumb-zinc-800">
+        <div className="flex-1 p-4 overflow-y-auto font-mono text-xs text-zinc-300 flex flex-col gap-3 select-text bg-editor-bg scrollbar-thin scrollbar-thumb-zinc-800">
           {history.map((item, idx) => (
             <div key={idx} className="flex flex-col gap-1">
-              <div className="flex items-center gap-2 text-cyan-400 font-semibold">
+              <div className="flex items-center gap-2 text-terminal-green font-semibold">
                 <span>guest@murilo-os:~$</span>
                 <span className="text-zinc-200">{item.cmd}</span>
               </div>
@@ -151,9 +151,9 @@ export function CommandPalette() {
         {/* Input Bar */}
         <form
           onSubmit={handleCommandSubmit}
-          className="border-t border-zinc-900 bg-zinc-950/90 px-4 py-3 flex items-center gap-2"
+          className="border-t border-white/[0.08] bg-bg-deep px-4 py-3 flex items-center gap-2"
         >
-          <span className="font-mono text-xs text-purple-400 font-bold select-none">guest@murilo-os:~$</span>
+          <span className="font-mono text-xs text-terminal-green font-bold select-none">guest@murilo-os:~$</span>
           
           <input
             ref={inputRef}
@@ -171,7 +171,7 @@ export function CommandPalette() {
 
           <button
             type="submit"
-            className="p-1 rounded text-zinc-500 hover:text-cyan-400 transition-colors"
+            className="p-1 rounded-sm text-zinc-500 hover:text-terminal-orange transition-colors"
             aria-label="Executar comando"
           >
             <CornerDownLeft className="w-3.5 h-3.5" />

@@ -11,28 +11,28 @@ interface BadgeProps {
 export function Badge({ status, className, children }: BadgeProps) {
   const stylesMap: Record<SkillStatus, { bg: string; text: string; border: string; glow: string }> = {
     learning: {
-      bg: "bg-amber-500/10",
-      text: "text-amber-400",
-      border: "border-amber-500/30",
-      glow: "shadow-[0_0_12px_rgba(245,158,11,0.15)]",
+      bg: "bg-syntax-yellow/10",
+      text: "text-syntax-yellow",
+      border: "border-syntax-yellow/30",
+      glow: "shadow-[0_0_12px_rgba(250,204,21,0.12)]",
     },
     practicing: {
-      bg: "bg-blue-500/10",
-      text: "text-blue-400",
-      border: "border-blue-500/30",
-      glow: "shadow-[0_0_12px_rgba(59,130,246,0.15)]",
+      bg: "bg-syntax-blue/10",
+      text: "text-syntax-blue",
+      border: "border-syntax-blue/25",
+      glow: "shadow-[0_0_12px_rgba(96,165,250,0.12)]",
     },
     building: {
-      bg: "bg-cyan-500/10",
-      text: "text-cyan-400",
-      border: "border-cyan-500/30",
-      glow: "shadow-[0_0_12px_rgba(6,182,212,0.15)]",
+      bg: "bg-terminal-green/10",
+      text: "text-terminal-green",
+      border: "border-terminal-green/25",
+      glow: "shadow-[0_0_12px_rgba(34,197,94,0.12)]",
     },
     improving: {
-      bg: "bg-purple-500/10",
-      text: "text-purple-400",
-      border: "border-purple-500/30",
-      glow: "shadow-[0_0_12px_rgba(139,92,246,0.15)]",
+      bg: "bg-syntax-purple/10",
+      text: "text-syntax-purple",
+      border: "border-syntax-purple/25",
+      glow: "shadow-[0_0_12px_rgba(192,132,252,0.12)]",
     },
   };
 
@@ -41,7 +41,7 @@ export function Badge({ status, className, children }: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-medium rounded-md border backdrop-blur-sm transition-all duration-300",
+        "inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-medium rounded-sm border transition-all duration-300",
         style.bg,
         style.text,
         style.border,

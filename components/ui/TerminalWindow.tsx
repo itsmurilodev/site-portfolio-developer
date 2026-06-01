@@ -18,14 +18,14 @@ export function TerminalWindow({
   return (
     <div
       className={cn(
-        "flex flex-col rounded-lg border border-zinc-800/80 bg-zinc-950/60 overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300",
-        glow && "hover:shadow-[0_12px_50px_rgba(6,182,212,0.08)]",
+        "flex flex-col rounded-md border border-white/[0.08] bg-editor-bg overflow-hidden shadow-[0_18px_55px_rgba(0,0,0,0.58)] transition-all duration-300",
+        glow && "hover:border-terminal-orange/35 hover:shadow-[0_18px_65px_rgba(255,92,36,0.08)]",
         className
       )}
       {...props}
     >
       {/* Top Header Bar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-zinc-900/60 border-b border-zinc-800/60 select-none">
+      <div className="flex items-center justify-between px-4 py-3 bg-panel-light border-b border-white/[0.08] select-none">
         {/* Left Mac Window Traffic Lights */}
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]/30" />
@@ -35,9 +35,9 @@ export function TerminalWindow({
         
         {/* Title */}
         <div className="text-xs font-mono font-medium text-zinc-400 truncate max-w-[60%] flex items-center gap-1.5">
-          <span className="text-zinc-600 text-[10px]">~/murilo/portfolio</span>
+          <span className="text-zinc-600 text-[10px]">~/murilo/workspace</span>
           <span className="text-zinc-500">/</span>
-          <span className="text-cyan-400">{title}</span>
+          <span className="text-terminal-orange">{title}</span>
         </div>
 
         {/* Right side info spacer */}

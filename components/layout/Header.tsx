@@ -1,5 +1,4 @@
 import React from "react";
-import { Terminal } from "lucide-react";
 import { MobileMenu } from "../interactive/MobileMenu";
 import { HeaderActiveLink } from "../interactive/HeaderActiveLink";
 import { siteConfig } from "@/lib/site";
@@ -32,21 +31,21 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-zinc-900/60 bg-zinc-950/70 backdrop-blur-md transition-all duration-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-bg-deep/95 backdrop-blur-md transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2 group outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-md p-1"
+          className="flex items-center gap-2 group outline-none focus-visible:ring-2 focus-visible:ring-terminal-orange rounded-sm p-1"
           aria-label="Ir para o topo"
         >
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-cyan-500/50 group-hover:bg-zinc-950/80 transition-all duration-300 shadow-inner">
-            <Terminal className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-sm border border-terminal-orange/35 bg-panel-bg font-mono text-sm font-black text-terminal-orange-soft shadow-inner transition-all duration-300 group-hover:border-terminal-orange/70 group-hover:bg-terminal-orange/10">
+            &lt;_
           </div>
           <span className="font-mono text-sm font-bold text-zinc-100 group-hover:text-white transition-colors">
             {siteConfig.name}
-            <span className="text-cyan-400 font-extrabold animate-pulse">_</span>
+            <span className="text-terminal-orange font-extrabold animate-pulse">_</span>
           </span>
         </a>
 
@@ -57,7 +56,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           
           {/* Status Label (desktop only) */}
-          <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 font-mono text-[10px] text-zinc-500 hover:border-zinc-700 transition-colors">
+          <div className="hidden sm:flex items-center gap-2 rounded-sm border border-white/[0.08] bg-panel-bg px-2.5 py-1 font-mono text-[10px] text-zinc-500 transition-colors hover:border-terminal-orange/35">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>status: available</span>
           </div>
@@ -68,7 +67,7 @@ export function Header() {
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              className="p-2 rounded-sm text-zinc-400 hover:text-terminal-orange-soft hover:bg-panel-bg border border-transparent hover:border-terminal-orange/30 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-terminal-orange"
               aria-label="Ver perfil do GitHub"
             >
               <GithubIcon className="w-4.5 h-4.5" />
@@ -77,7 +76,7 @@ export function Header() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+              className="p-2 rounded-sm text-zinc-400 hover:text-terminal-orange-soft hover:bg-panel-bg border border-transparent hover:border-terminal-orange/30 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-terminal-orange"
               aria-label="Ver perfil do LinkedIn"
             >
               <LinkedinIcon className="w-4.5 h-4.5" />
