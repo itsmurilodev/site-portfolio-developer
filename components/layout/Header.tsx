@@ -1,7 +1,7 @@
 import React from "react";
 import { MobileMenu } from "../interactive/MobileMenu";
-import { HeaderActiveLink } from "../interactive/HeaderActiveLink";
 import { siteConfig } from "@/lib/site";
+import { navigationLinks } from "@/lib/navigation";
 
 // Stable inline custom SVGs for brand icons
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -20,18 +20,8 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export function Header() {
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Sobre", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Jornada", href: "#journey" },
-    { label: "Projetos", href: "#projects" },
-    { label: "Async Studio", href: "#async-studio" },
-    { label: "Contato", href: "#contact" },
-  ];
-
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-bg-deep/95 backdrop-blur-md transition-all duration-300">
+    <header className="sticky top-0 z-40 w-full border-b border-white/[0.08] bg-bg-deep/95 backdrop-blur-md transition-all duration-300 lg:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand Logo */}
@@ -49,10 +39,7 @@ export function Header() {
           </span>
         </a>
 
-        {/* Desktop Navigation (Client scroll-spied component) */}
-        <HeaderActiveLink navLinks={navLinks} />
-
-        {/* Right side widgets (Socials + MobileMenu) */}
+        {/* Right side widgets (Socials + compact navigation drawer) */}
         <div className="flex items-center gap-3">
           
           {/* Status Label (desktop only) */}
@@ -84,7 +71,7 @@ export function Header() {
           </div>
 
           {/* Mobile Drawer (Client component trigger) */}
-          <MobileMenu navLinks={navLinks} />
+          <MobileMenu navLinks={navigationLinks} />
         </div>
       </div>
     </header>

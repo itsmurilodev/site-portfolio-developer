@@ -10,8 +10,8 @@ export const siteConfig = {
   description: "Portfólio de Murilo Alves, Desenvolvedor Web em formação com foco em Backend, DevOps e Automação.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   email: "itsmurilo.dev@gmail.com", // Placeholder editável
-  whatsapp: "https://wa.me/5500900000000", // Placeholder editável (Substitua pelo seu número real, ex: https://wa.me/5511999999999)
-  github: "https://github.com/itsmurilo", // Placeholder editável
+  whatsapp: "https://wa.me/5551994028000", // Placeholder editável (Substitua pelo seu número real, ex: https://wa.me/5511999999999)
+  github: "https://github.com/itsmuriloa", // Placeholder editável
   linkedin: "https://www.linkedin.com/in/itsmuriloa/",
   instagram: "https://www.instagram.com/asyncstudiodev", // Async Studio Instagram
   location: "Brasil / remoto",

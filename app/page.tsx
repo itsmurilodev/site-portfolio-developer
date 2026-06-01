@@ -1,6 +1,8 @@
 import React from "react";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { IdentityDock } from "@/components/navigation/IdentityDock";
+import { MobileBottomNav } from "@/components/navigation/MobileBottomNav";
+import { SectionRail } from "@/components/navigation/SectionRail";
 import { Hero } from "@/components/sections/Hero";
 import { AboutTerminal } from "@/components/sections/AboutTerminal";
 import { SkillsSystem } from "@/components/sections/SkillsSystem";
@@ -97,8 +99,10 @@ export default function Home() {
       {/* Ctrl/Cmd + K terminal console palette loaded on-demand */}
       <PaletteWrapper />
 
-      {/* Main Structural Layout */}
-      <Header />
+      {/* Contextual navigation */}
+      <IdentityDock />
+      <SectionRail />
+      <MobileBottomNav />
 
       <main className="flex-1 w-full relative">
         {/* Subtle Cybernetic grid overlay layered in back */}

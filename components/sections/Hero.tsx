@@ -36,7 +36,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="flex flex-col gap-6 text-left lg:col-span-6">
+          <div className="flex min-w-0 w-full max-w-[calc(100vw-2rem)] flex-col gap-6 text-left lg:col-span-6 lg:max-w-none">
             <div className="inline-flex w-fit items-center gap-2 rounded-sm border border-terminal-orange/30 bg-bg-deep/80 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-terminal-orange-soft shadow-[0_0_24px_rgba(255,92,36,0.08)]">
               <span className="h-2 w-2 rounded-full bg-terminal-green shadow-[0_0_12px_rgba(34,197,94,0.8)]" />
               <span>SYSTEM.KERNEL :: v1.0 ONLINE</span>
@@ -44,8 +44,8 @@ export function Hero() {
 
             <div className="space-y-5">
               <h1 className="max-w-3xl text-4xl font-black leading-[0.95] text-text-main sm:text-5xl md:text-6xl xl:text-7xl">
-                Hello, I&apos;m{" "}
-                <span className="bg-gradient-to-r from-terminal-orange via-syntax-yellow to-syntax-blue bg-clip-text text-transparent">
+                <span className="block">Hello, I&apos;m</span>
+                <span className="block whitespace-nowrap bg-gradient-to-r from-syntax-yellow via-[#f59e0b] to-terminal-orange bg-clip-text text-transparent">
                   {profileData.name}
                 </span>
               </h1>
@@ -64,7 +64,7 @@ export function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#about"
-                className="command-button inline-flex items-center justify-center gap-2 border border-terminal-orange/65 bg-bg-deep px-5 py-3 font-mono text-sm font-bold text-terminal-orange-soft shadow-[0_0_18px_rgba(255,92,36,0.08)] transition-all duration-300 hover:bg-terminal-orange/10 hover:shadow-[0_0_26px_rgba(255,92,36,0.22)] focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
+                className="command-button inline-flex w-full items-center justify-center gap-2 border border-terminal-orange/65 bg-bg-deep px-5 py-3 font-mono text-sm font-bold text-terminal-orange-soft shadow-[0_0_18px_rgba(255,92,36,0.08)] transition-all duration-300 hover:bg-terminal-orange/10 hover:shadow-[0_0_26px_rgba(255,92,36,0.22)] focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none sm:w-auto"
               >
                 <Play className="h-4 w-4" />
                 <span>Initialize Profile</span>
@@ -72,7 +72,7 @@ export function Hero() {
 
               <a
                 href="#projects"
-                className="command-button inline-flex items-center justify-center gap-2 border border-white/[0.12] bg-panel-bg px-5 py-3 font-mono text-sm font-semibold text-zinc-300 transition-all duration-300 hover:border-terminal-orange/50 hover:text-terminal-orange-soft focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
+                className="command-button inline-flex w-full items-center justify-center gap-2 border border-white/[0.12] bg-panel-bg px-5 py-3 font-mono text-sm font-semibold text-zinc-300 transition-all duration-300 hover:border-terminal-orange/50 hover:text-terminal-orange-soft focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none sm:w-auto"
               >
                 <FolderGit2 className="h-4 w-4" />
                 <span>View Projects</span>
@@ -82,7 +82,7 @@ export function Hero() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/[0.1] bg-bg-deep px-5 py-3 font-mono text-sm font-semibold text-zinc-400 transition-all duration-300 hover:border-terminal-orange/40 hover:text-terminal-orange-soft focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-white/[0.1] bg-bg-deep px-5 py-3 font-mono text-sm font-semibold text-zinc-400 transition-all duration-300 hover:border-terminal-orange/40 hover:text-terminal-orange-soft focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none sm:w-auto"
                 aria-label="Ver perfil no GitHub"
               >
                 <GithubIcon className="h-4 w-4" />
@@ -96,7 +96,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-2xl lg:col-span-6">
+          <div className="relative mx-auto w-full max-w-[calc(100vw-2rem)] min-w-0 sm:max-w-2xl lg:col-span-6">
             <div className="absolute -inset-4 bg-terminal-orange/10 blur-3xl pointer-events-none" />
             <div className="terminal-panel relative overflow-hidden rounded-md">
               <div className="flex items-center justify-between border-b border-white/[0.08] bg-panel-light px-4 py-3">

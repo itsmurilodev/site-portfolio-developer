@@ -56,6 +56,13 @@
       radial-gradient(circle at 82% 8%, rgba(250, 204, 21, 0.055) 0, transparent 22rem),
       linear-gradient(180deg, #252525 0%, #181818 48%, #101010 100%);
     overflow-x: hidden;
+    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      padding-bottom: 0;
+    }
   }
 
   /* Accessible high-contrast focus styling */

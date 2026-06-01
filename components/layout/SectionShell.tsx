@@ -23,7 +23,7 @@ export function SectionShell({
     <section
       id={id}
       className={cn(
-        "py-16 md:py-24 border-b border-white/[0.07] scroll-mt-20 relative",
+        "py-16 md:py-24 border-b border-white/[0.07] scroll-mt-8 relative",
         className
       )}
       {...props}

@@ -3,13 +3,16 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Terminal, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { NavigationLink } from "@/lib/navigation";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 interface MobileMenuProps {
-  navLinks: Array<{ label: string; href: string }>;
+  navLinks: NavigationLink[];
 }
 
 export function MobileMenu({ navLinks }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { activeSection, setActiveSection } = useActiveSection(navLinks);
 
   // Close drawer if user presses Escape key
   useEffect(() => {
@@ -30,7 +33,7 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       {/* Trigger Button */}
       <button
         onClick={toggleMenu}
@@ -85,8 +88,17 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={closeMenu}
-                className="flex items-center gap-3 px-4 py-3 rounded-sm border border-transparent font-mono text-sm text-zinc-400 hover:text-terminal-orange-soft hover:bg-panel-bg hover:border-terminal-orange/25 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none"
+                onClick={() => {
+                  setActiveSection(link.id);
+                  closeMenu();
+                }}
+                aria-current={activeSection === link.id ? "location" : undefined}
+                className={cn(
+                  "flex items-center gap-3 px-4 py-3 rounded-sm border font-mono text-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none",
+                  activeSection === link.id
+                    ? "border-terminal-orange/35 bg-terminal-orange/10 text-terminal-orange-soft"
+                    : "border-transparent text-zinc-400 hover:text-terminal-orange-soft hover:bg-panel-bg hover:border-terminal-orange/25"
+                )}
               >
                 <span className="text-[10px] text-zinc-600 font-bold">&gt;</span>
                 {link.label}
