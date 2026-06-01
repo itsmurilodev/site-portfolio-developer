@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #8b5cf6;
+  --color-brand-cyan: #06b6d4;
+  --color-brand-blue: #3b82f6;
+  
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-mono: var(--font-fira-code), monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    background-color: #07050f;
+    color: #e4e4e7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #07050f;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.03) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.03) 0px, transparent 50%);
+    overflow-x: hidden;
+  }
+
+  /* Accessible high-contrast focus styling */
+  *:focus-visible {
+    outline: 2px solid #06b6d4 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Custom Scrollbar Styles for Terminal/Code windows */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(7, 5, 15, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(63, 63, 70, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.4);
+}
+
+/* Coding Grid Overlay */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Neon mesh background circular gradients */
+.bg-radial-gradient {
+  background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+/* ----------------------------------------------------
+   CSS-DRIVEN PROJECT CATEGORY FILTERING RULES
+   ---------------------------------------------------- */
+[data-active-filter="study-project"] .project-card:not([data-category="study-project"]) {
+  display: none !important;
+}
+
+[data-active-filter="private-project"] .project-card:not([data-category="private-project"]) {
+  display: none !important;
+}
+
+[data-active-filter="real-experience"] .project-card:not([data-category="real-experience"]) {
+  display: none !important;
+}
+
+/* ----------------------------------------------------
+   DYNAMIC DOM GLOW CARD OVERRIDES (HIGHLIGHTER)
+   ---------------------------------------------------- */
+.border-active-glow {
+  border-color: rgba(6, 182, 212, 0.6) !important;
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.15) !important;
+  background-color: rgba(6, 182, 212, 0.02) !important;
+  transform: translateY(-4px);
+}
