@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface HeaderActiveLinkProps {
@@ -12,37 +12,38 @@ export function HeaderActiveLink({ navLinks }: HeaderActiveLinkProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200; // Offset for headers
+      const headerAdjustedScrollPosition = window.scrollY + 200;
 
-      // Find which section is currently active
       for (const link of navLinks) {
-        const id = link.href.substring(1);
-        const element = document.getElementById(id);
-        
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(id);
-            break;
-          }
+        const sectionId = link.href.substring(1);
+        const sectionElement = document.getElementById(sectionId);
+
+        if (!sectionElement) continue;
+
+        const sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.offsetHeight;
+
+        if (
+          headerAdjustedScrollPosition >= sectionTop &&
+          headerAdjustedScrollPosition < sectionTop + sectionHeight
+        ) {
+          setActiveSection(sectionId);
+          break;
         }
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Trigger initial check
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navLinks]);
 
   return (
-    <nav className="hidden md:flex items-center gap-1" aria-label="Navegação principal">
+    <nav className="hidden md:flex items-center gap-1" aria-label="Navega\u00e7\u00e3o principal">
       {navLinks.map((link) => {
-        const id = link.href.substring(1);
-        const isActive = activeSection === id;
+        const sectionId = link.href.substring(1);
+        const isActive = activeSection === sectionId;
 
         return (
           <a

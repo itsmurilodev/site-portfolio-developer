@@ -9,13 +9,13 @@ export const siteConfig = {
   tagline: "Aprender construindo. Evoluir entregando. Documentar o caminho.",
   description: "Portfólio de Murilo Alves, Desenvolvedor Web em formação com foco em Backend, DevOps e Automação.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  email: "itsmurilo.dev@gmail.com", // Placeholder editável
-  whatsapp: "https://wa.me/5551994028000", // Placeholder editável com número de telefone fictício
-  github: "https://github.com/itsmuriloa", // Placeholder editável
+  email: "itsmurilo.dev@gmail.com",
+  whatsapp: "https://wa.me/5551994028000",
+  github: "https://github.com/itsmuriloa",
   linkedin: "https://www.linkedin.com/in/itsmuriloa/",
-  instagram: "https://www.instagram.com/asyncstudiodev", // Async Studio Instagram
+  instagram: "https://www.instagram.com/asyncstudiodev",
   location: "Brasil / remoto",
-  status: "available" as const, // available, busy, offline
+  status: "available" as const,
 };
 
 export type SiteConfig = typeof siteConfig;

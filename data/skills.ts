@@ -39,7 +39,6 @@ export const skillsData: SkillPillar[] = [
   },
 ];
 
-// O JSON visual bruto que será renderizado no editor de código interativo para SEO e estética
 export const skillsJsonString = `{
   "profile": "Web Developer + Backend + DevOps in Progress",
   "main_focus": [

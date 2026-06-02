@@ -32,7 +32,6 @@ export function GlassCard({
       )}
       {...props}
     >
-      {/* Subtle top-light gradient line to simulate light hitting metal/glass edge */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-terminal-orange/25 to-transparent" />
       {children}
     </div>

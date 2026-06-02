@@ -29,7 +29,6 @@ export default async function Image() {
           fontFamily: "monospace",
         }}
       >
-        {/* Glowing Neon light overlay */}
         <div
           style={{
             position: "absolute",
@@ -55,7 +54,6 @@ export default async function Image() {
           }}
         />
 
-        {/* Top Header metadata mockup */}
         <div
           style={{
             display: "flex",
@@ -88,7 +86,6 @@ export default async function Image() {
           </div>
         </div>
 
-        {/* Center Main branding text */}
         <div
           style={{
             display: "flex",
@@ -125,7 +122,6 @@ export default async function Image() {
           </p>
         </div>
 
-        {/* Bottom footer metadata */}
         <div
           style={{
             display: "flex",

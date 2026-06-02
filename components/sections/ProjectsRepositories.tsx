@@ -3,15 +3,10 @@ import { SectionShell } from "../layout/SectionShell";
 import { RepositoryCard } from "../ui/RepositoryCard";
 import { ProjectFilters } from "../interactive/ProjectFilters";
 import { projectsData } from "@/data/projects";
+import { countProjectsByFilter } from "@/lib/projectFilters";
 
 export function ProjectsRepositories() {
-  // Pre-calculate counts on the server side
-  const counts = {
-    all: projectsData.length,
-    "study-project": projectsData.filter((p) => p.category === "study-project").length,
-    "private-project": projectsData.filter((p) => p.category === "private-project").length,
-    "real-experience": projectsData.filter((p) => p.category === "real-experience").length,
-  };
+  const projectCounts = countProjectsByFilter(projectsData);
 
   return (
     <SectionShell
@@ -23,14 +18,8 @@ export function ProjectsRepositories() {
       headerClassName="lg:mb-8"
     >
       <div className="flex flex-col gap-5 lg:gap-6">
-        {/* Render interactive filter buttons (Client Component) passing computed server counts */}
-        <ProjectFilters counts={counts} />
+        <ProjectFilters projectCounts={projectCounts} />
 
-        {/* 
-          Main Projects Grid (Server Component)
-          Statically rendered in initial HTML. Display state is managed in the client 
-          strictly by toggling a CSS attribute class.
-        */}
         <div
           id="projects-grid-container"
           data-active-filter="all"

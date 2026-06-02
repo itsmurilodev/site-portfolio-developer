@@ -3,7 +3,6 @@ import { Outfit, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 
-// Google Fonts setup with CSS variables
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",

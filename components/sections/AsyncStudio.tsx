@@ -1,16 +1,8 @@
 import React from "react";
 import { ArrowUpRight, CheckCircle2, Flame } from "lucide-react";
 import { SectionShell } from "../layout/SectionShell";
+import { InstagramIcon } from "@/components/ui/BrandIcons";
 import { siteConfig } from "@/lib/site";
-
-// Stable inline custom Instagram SVG
-const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-);
 
 export function AsyncStudio() {
   const services = [
@@ -33,23 +25,19 @@ export function AsyncStudio() {
     >
       <div className="group relative overflow-hidden rounded-md border border-terminal-orange/25 bg-panel-bg/80 p-5 shadow-2xl md:p-7 lg:p-8">
         
-        {/* Subtle mesh background + glowing circular nebulae */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,96,38,0.035)_1px,transparent_1px)] bg-[size:32px] pointer-events-none" />
         <div className="absolute -top-[30%] -right-[10%] w-[350px] h-[350px] rounded-full bg-terminal-orange/10 blur-[80px] pointer-events-none group-hover:bg-terminal-orange/15 transition-all duration-500" />
         <div className="absolute -bottom-[30%] -left-[10%] w-[350px] h-[350px] rounded-full bg-syntax-yellow/5 blur-[80px] pointer-events-none transition-all duration-500" />
 
         <div className="relative z-10 grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
           
-          {/* Left Text Block */}
           <div className="flex flex-col gap-4 lg:col-span-7">
             
-            {/* Startup Brand Tag */}
             <div className="inline-flex self-start items-center gap-2 px-3 py-1 rounded-sm border border-terminal-orange/30 bg-terminal-orange/10 font-mono text-xs text-terminal-orange-soft">
               <Flame className="w-3.5 h-3.5 text-terminal-orange animate-pulse" />
               <span>startup_workspace</span>
             </div>
 
-            {/* Main Tagline */}
             <h3 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl xl:text-4xl">
               Desenvolvimento de software{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-terminal-orange to-syntax-yellow">
@@ -57,12 +45,10 @@ export function AsyncStudio() {
               </span>
             </h3>
 
-            {/* Description */}
             <p className="font-sans text-sm leading-relaxed text-zinc-400 md:text-[15px]">
               A Async Studio é um estúdio de desenvolvimento de software focado em sites profissionais, landing pages, sistemas sob medida, web apps, SaaS, MVPs e automações inteligentes para pequenos negócios, MEIs, autônomos e startups em fase inicial.
             </p>
 
-            {/* Services Bullet list */}
             <div className="mt-1 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               {services.map((service) => (
                 <div key={service} className="flex items-center gap-2 font-sans text-xs text-zinc-300">
@@ -72,7 +58,6 @@ export function AsyncStudio() {
               ))}
             </div>
 
-            {/* Social redirection CTA */}
             <div className="mt-2 flex items-center gap-4">
               <a
                 href={siteConfig.instagram}
@@ -88,7 +73,6 @@ export function AsyncStudio() {
 
           </div>
 
-          {/* Right Metrics Panel Representation */}
           <div className="lg:col-span-5 w-full">
             <div className="flex flex-col gap-3 rounded-md border border-white/[0.08] bg-bg-deep/90 p-5 font-mono text-xs text-zinc-400 shadow-inner">
               
@@ -97,7 +81,6 @@ export function AsyncStudio() {
                 <span className="text-terminal-green font-bold">active</span>
               </div>
 
-              {/* simulated metric rows */}
               <div className="flex flex-col gap-3 font-mono">
                 <div className="flex justify-between items-center">
                   <span className="text-zinc-600">focus_scope</span>

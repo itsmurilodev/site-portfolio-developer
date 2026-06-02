@@ -6,7 +6,7 @@ interface SectionShellProps extends React.HTMLAttributes<HTMLDivElement> {
   id: string;
   title: string;
   subtitle?: string;
-  technicalTag?: string; // e.g. whoami, skills.system.json, repositories
+  technicalTag?: string;
   className?: string;
   containerClassName?: string;
   headerClassName?: string;
@@ -34,10 +34,8 @@ export function SectionShell({
       )}
       {...props}
     >
-      {/* Container sizing */}
       <div className={cn("mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 xl:max-w-7xl", containerClassName)}>
         
-        {/* Header Block */}
         <div className={cn("mb-7 md:mb-9 lg:mb-10", headerClassName)}>
           {technicalTag && (
             <span className="inline-block font-mono text-[10px] uppercase tracking-wider text-terminal-orange-soft mb-2 border border-terminal-orange/25 bg-terminal-orange/5 px-2.5 py-0.5 rounded-sm select-none">
@@ -56,7 +54,6 @@ export function SectionShell({
           )}
         </div>
 
-        {/* Section Contents */}
         <div className={cn("relative z-10", contentClassName)}>{children}</div>
       </div>
     </section>

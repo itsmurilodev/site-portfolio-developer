@@ -2,6 +2,24 @@
 
 import React, { useEffect, useRef } from "react";
 
+const skillKeyByCardIndex: Record<string, string> = {
+  "0": "web_development",
+  "1": "backend_database",
+  "2": "infrastructure_devops",
+  "3": "automation_tools",
+};
+
+const cardIndexBySkillKey = Object.fromEntries(
+  Object.entries(skillKeyByCardIndex).map(([cardIndex, skillKey]) => [skillKey, cardIndex])
+);
+
+const activeLineClasses = [
+  "bg-terminal-orange/10",
+  "border-l-2",
+  "border-terminal-orange",
+  "-ml-[2px]",
+];
+
 export function SkillsHighlighter({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -9,99 +27,70 @@ export function SkillsHighlighter({ children }: { children: React.ReactNode }) {
     const container = containerRef.current;
     if (!container) return;
 
-    // Attach delegated mouse event listeners
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      
-      // 1. Hovering on a JSON key overlay
-      const jsonKeyElement = target.closest("[data-json-key]") as HTMLElement;
-      if (jsonKeyElement) {
-        const key = jsonKeyElement.getAttribute("data-json-key");
-        highlightPillar(key);
+    const clearHighlights = () => {
+      container.querySelectorAll("[data-pillar-card]").forEach((element) => {
+        element.classList.remove("border-active-glow");
+      });
+      container.querySelectorAll("[data-line-key]").forEach((element) => {
+        element.classList.remove(...activeLineClasses);
+      });
+    };
+
+    const highlightPillar = (skillKey: string | null) => {
+      if (!skillKey) {
+        clearHighlights();
         return;
       }
 
-      // 2. Hovering on a pilar card
-      const cardElement = target.closest("[data-pillar-card]") as HTMLElement;
-      if (cardElement) {
-        const cardIndex = cardElement.getAttribute("data-pillar-card");
-        highlightPillarByIndex(cardIndex);
+      const activeCardIndex = cardIndexBySkillKey[skillKey];
+
+      container.querySelectorAll("[data-pillar-card]").forEach((element) => {
+        const card = element as HTMLElement;
+        const cardIndex = card.getAttribute("data-pillar-card");
+
+        if (cardIndex === activeCardIndex) {
+          card.classList.add("border-active-glow");
+        } else {
+          card.classList.remove("border-active-glow");
+        }
+      });
+
+      container.querySelectorAll("[data-line-key]").forEach((element) => {
+        const line = element as HTMLElement;
+        const lineKey = line.getAttribute("data-line-key");
+
+        if (lineKey === skillKey) {
+          line.classList.add(...activeLineClasses);
+        } else {
+          line.classList.remove(...activeLineClasses);
+        }
+      });
+    };
+
+    const highlightPillarByIndex = (cardIndex: string | null) => {
+      highlightPillar(cardIndex ? skillKeyByCardIndex[cardIndex] : null);
+    };
+
+    const handleMouseOver = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const jsonKeyElement = target.closest("[data-json-key]") as HTMLElement | null;
+      const cardElement = target.closest("[data-pillar-card]") as HTMLElement | null;
+
+      if (jsonKeyElement) {
+        highlightPillar(jsonKeyElement.getAttribute("data-json-key"));
         return;
+      }
+
+      if (cardElement) {
+        highlightPillarByIndex(cardElement.getAttribute("data-pillar-card"));
       }
     };
 
-    const handleMouseOut = (e: MouseEvent) => {
-      // If we exit the container, clear all highlights
-      const relatedTarget = e.relatedTarget as HTMLElement;
+    const handleMouseOut = (event: MouseEvent) => {
+      const relatedTarget = event.relatedTarget as HTMLElement | null;
       if (!relatedTarget || !container.contains(relatedTarget)) {
         clearHighlights();
       }
-    };
-
-    const highlightPillar = (key: string | null) => {
-      if (!key) {
-        clearHighlights();
-        return;
-      }
-      
-      const indexMap: Record<string, string> = {
-        web_development: "0",
-        backend_database: "1",
-        infrastructure_devops: "2",
-        automation_tools: "3",
-      };
-
-      const activeIndex = indexMap[key];
-      
-      // Update DOM classes for cards
-      container.querySelectorAll("[data-pillar-card]").forEach((el) => {
-        const targetCard = el as HTMLElement;
-        const currentIdx = targetCard.getAttribute("data-pillar-card");
-        
-        if (currentIdx === activeIndex) {
-          targetCard.classList.add("border-active-glow");
-        } else {
-          targetCard.classList.remove("border-active-glow");
-        }
-      });
-
-      // Update line highlights in the JSON CodeBlock
-      container.querySelectorAll("[data-line-key]").forEach((el) => {
-        const targetLine = el as HTMLElement;
-        const currentKey = targetLine.getAttribute("data-line-key");
-        
-        if (currentKey === key) {
-          targetLine.classList.add("bg-terminal-orange/10", "border-l-2", "border-terminal-orange", "-ml-[2px]");
-        } else {
-          targetLine.classList.remove("bg-terminal-orange/10", "border-l-2", "border-terminal-orange", "-ml-[2px]");
-        }
-      });
-    };
-
-    const highlightPillarByIndex = (index: string | null) => {
-      if (!index) {
-        clearHighlights();
-        return;
-      }
-
-      const reverseMap: Record<string, string> = {
-        "0": "web_development",
-        "1": "backend_database",
-        "2": "infrastructure_devops",
-        "3": "automation_tools",
-      };
-
-      const matchedKey = reverseMap[index];
-      highlightPillar(matchedKey);
-    };
-
-    const clearHighlights = () => {
-      container.querySelectorAll("[data-pillar-card]").forEach((el) => {
-        el.classList.remove("border-active-glow");
-      });
-      container.querySelectorAll("[data-line-key]").forEach((el) => {
-        el.classList.remove("bg-terminal-orange/10", "border-l-2", "border-terminal-orange", "-ml-[2px]");
-      });
     };
 
     container.addEventListener("mouseover", handleMouseOver);

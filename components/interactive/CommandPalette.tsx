@@ -1,37 +1,92 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { Terminal, CornerDownLeft, X } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { CornerDownLeft, Terminal, X } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+
+interface TerminalHistoryEntry {
+  command: string;
+  output: string;
+}
+
+interface CommandResult {
+  output?: string;
+  shouldClear?: boolean;
+  shouldClose?: boolean;
+}
+
+const initialHistory: TerminalHistoryEntry[] = [
+  {
+    command: "system --init",
+    output:
+      "Bem-vindo ao terminal interativo de Murilo Alves. Digite 'help' para listar os comandos permitidos.",
+  },
+];
+
+function executeTerminalCommand(normalizedCommand: string): CommandResult {
+  switch (normalizedCommand) {
+    case "help":
+      return {
+        output:
+          "Comandos dispon\u00edveis:\n  about      - Exibe biografia de Murilo Alves\n  skills     - Mostra as quatro stacks de compet\u00eancias\n  projects   - Lista os projetos em destaque\n  contact    - Informa\u00e7\u00f5es de e-mail e canais de contato\n  linkedin   - Abre o perfil do LinkedIn em nova aba\n  github     - Abre o GitHub em nova aba\n  clear      - Limpa o hist\u00f3rico de comandos\n  exit       - Fecha o console do terminal",
+      };
+    case "about":
+      return {
+        output: `Murilo Alves - ${siteConfig.role}\nForma\u00e7\u00e3o: ${siteConfig.education}\nMiss\u00e3o: ${siteConfig.mission}\n\u00c1reas: ${siteConfig.area}`,
+      };
+    case "skills":
+      return {
+        output:
+          "Skills mapeadas:\n  [Web]: HTML, CSS, JavaScript, React, Vite, UX\n  [Backend]: PHP, MySQL, CRUD, APIs, Modelagem de dados\n  [Infra/DevOps]: Linux, SSH, VPS, Docker, DNS, Nginx, Deploy, Git\n  [Automa\u00e7\u00f5es]: n8n, Scripts, APIs, AI Tools, Google Workspace",
+      };
+    case "projects":
+      return {
+        output:
+          "Projetos em Destaque:\n  1. CrudPHP (Estudo CRUD com PHP/MySQL)\n  2. Jogo do N\u00famero Secreto (HTML/CSS/JS nativo)\n  3. Cadastro de Atletas (JS L\u00f3gica)\n  4. Notas de Atletas (JS Array logic)\n  5. Projeto privado em equipe (React/Vite corporativo)\n  6. Rotina de TI e infraestrutura (Suporte, VPS, DNS, Docker)",
+      };
+    case "contact":
+      return {
+        output: `Contato & Canais:\n  E-mail: ${siteConfig.email}\n  Status: ${siteConfig.status.toUpperCase()}\n  Localiza\u00e7\u00e3o: ${siteConfig.location}\n  Redes: LinkedIn (${siteConfig.linkedin}), Instagram (@asyncstudiodev)`,
+      };
+    case "linkedin":
+      window.open(siteConfig.linkedin, "_blank");
+      return { output: "Redirecionando para o perfil do LinkedIn em nova aba..." };
+    case "github":
+      window.open(siteConfig.github, "_blank");
+      return { output: "Redirecionando para o GitHub em nova aba..." };
+    case "clear":
+      return { shouldClear: true };
+    case "exit":
+      return { shouldClose: true };
+    default:
+      return {
+        output: `bash: comando n\u00e3o encontrado: '${normalizedCommand}'. Digite 'help' para comandos v\u00e1lidos.`,
+      };
+  }
+}
 
 export function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [history, setHistory] = useState<Array<{ cmd: string; output: string }>>([
-    {
-      cmd: "system --init",
-      output: "Bem-vindo ao terminal interativo de Murilo Alves. Digite 'help' para listar os comandos permitidos.",
-    },
-  ]);
+  const [history, setHistory] = useState<TerminalHistoryEntry[]>(initialHistory);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const historyEndRef = useRef<HTMLDivElement>(null);
 
-  // 1. Listen for Ctrl/Cmd + K to toggle palette
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setIsOpen((prev) => !prev);
-      } else if (e.key === "Escape") {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+        event.preventDefault();
+        setIsOpen((previousValue) => !previousValue);
+      } else if (event.key === "Escape") {
         setIsOpen(false);
       }
     };
+
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // 2. Focus input when palette opens
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 80);
@@ -39,61 +94,41 @@ export function CommandPalette() {
     } else {
       document.body.style.overflow = "";
     }
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  // 3. Scroll to bottom of terminal output history
   useEffect(() => {
     historyEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [history]);
 
-  const handleCommandSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const cleanCmd = inputValue.trim().toLowerCase();
-    if (!cleanCmd) return;
+  const handleCommandSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
 
-    let output = "";
+    const submittedCommand = inputValue;
+    const normalizedCommand = submittedCommand.trim().toLowerCase();
+    if (!normalizedCommand) return;
 
-    switch (cleanCmd) {
-      case "help":
-        output = "Comandos disponíveis:\n  about      - Exibe biografia de Murilo Alves\n  skills     - Mostra as quatro stacks de competências\n  projects   - Lista os projetos em destaque\n  contact    - Informações de e-mail e canais de contato\n  linkedin   - Abre o perfil do LinkedIn em nova aba\n  github     - Abre o GitHub em nova aba\n  clear      - Limpa o histórico de comandos\n  exit       - Fecha o console do terminal";
-        break;
-      case "about":
-        output = `Murilo Alves - ${siteConfig.role}\nFormação: ${siteConfig.education}\nMissão: ${siteConfig.mission}\nÁreas: ${siteConfig.area}`;
-        break;
-      case "skills":
-        output = "Skills mapeadas:\n  [Web]: HTML, CSS, JavaScript, React, Vite, UX\n  [Backend]: PHP, MySQL, CRUD, APIs, Modelagem de dados\n  [Infra/DevOps]: Linux, SSH, VPS, Docker, DNS, Nginx, Deploy, Git\n  [Automações]: n8n, Scripts, APIs, AI Tools, Google Workspace";
-        break;
-      case "projects":
-        output = "Projetos em Destaque:\n  1. CrudPHP (Estudo CRUD com PHP/MySQL)\n  2. Jogo do Número Secreto (HTML/CSS/JS nativo)\n  3. Cadastro de Atletas (JS Lógica)\n  4. Notas de Atletas (JS Array logic)\n  5. Projeto privado em equipe (React/Vite corporativo)\n  6. Rotina de TI e infraestrutura (Suporte, VPS, DNS, Docker)";
-        break;
-      case "contact":
-        output = `Contato & Canais:\n  E-mail: ${siteConfig.email}\n  Status: ${siteConfig.status.toUpperCase()}\n  Localização: ${siteConfig.location}\n  Redes: LinkedIn (${siteConfig.linkedin}), Instagram (@asyncstudiodev)`;
-        break;
-      case "linkedin":
-        window.open(siteConfig.linkedin, "_blank");
-        output = "Redirecionando para o perfil do LinkedIn em nova aba...";
-        break;
-      case "github":
-        window.open(siteConfig.github, "_blank");
-        output = "Redirecionando para o GitHub em nova aba...";
-        break;
-      case "clear":
-        setHistory([]);
-        setInputValue("");
-        return;
-      case "exit":
-        setIsOpen(false);
-        setInputValue("");
-        return;
-      default:
-        output = `bash: comando não encontrado: '${cleanCmd}'. Digite 'help' para comandos válidos.`;
-        break;
+    const commandResult = executeTerminalCommand(normalizedCommand);
+
+    if (commandResult.shouldClear) {
+      setHistory([]);
+      setInputValue("");
+      return;
     }
 
-    setHistory((prev) => [...prev, { cmd: inputValue, output }]);
+    if (commandResult.shouldClose) {
+      setIsOpen(false);
+      setInputValue("");
+      return;
+    }
+
+    setHistory((previousHistory) => [
+      ...previousHistory,
+      { command: submittedCommand, output: commandResult.output ?? "" },
+    ]);
     setInputValue("");
   };
 
@@ -107,21 +142,20 @@ export function CommandPalette() {
       aria-modal="true"
       aria-label="Console Terminal de Comandos"
     >
-      {/* Console Box */}
       <div
         className="w-full max-w-xl rounded-md border border-white/[0.08] bg-bg-deep shadow-2xl overflow-hidden flex flex-col h-[400px]"
-        onClick={(e) => e.stopPropagation()} // Prevent closing
+        onClick={(event) => event.stopPropagation()}
       >
-        {/* Top Control Bar */}
         <div className="flex items-center justify-between px-4 py-3 bg-panel-light border-b border-white/[0.08]">
           <div className="flex items-center gap-2 text-terminal-orange-soft font-mono text-xs font-semibold">
             <Terminal className="w-4 h-4" />
             <span>murilo_os://bash</span>
           </div>
 
-          {/* Shortcut hint */}
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono text-zinc-500 hidden sm:inline">ESC para fechar</span>
+            <span className="text-[10px] font-mono text-zinc-500 hidden sm:inline">
+              ESC para fechar
+            </span>
             <button
               onClick={() => setIsOpen(false)}
               className="p-1 rounded-sm text-zinc-500 hover:text-terminal-orange-soft hover:bg-bg-deep border border-transparent transition-all duration-200 outline-none focus-visible:ring-1 focus-visible:ring-terminal-orange"
@@ -132,13 +166,12 @@ export function CommandPalette() {
           </div>
         </div>
 
-        {/* History Log */}
         <div className="flex-1 p-4 overflow-y-auto font-mono text-xs text-zinc-300 flex flex-col gap-3 select-text bg-editor-bg scrollbar-thin scrollbar-thumb-zinc-800">
-          {history.map((item, idx) => (
-            <div key={idx} className="flex flex-col gap-1">
+          {history.map((item, index) => (
+            <div key={`${item.command}-${index}`} className="flex flex-col gap-1">
               <div className="flex items-center gap-2 text-terminal-green font-semibold">
                 <span>guest@murilo-os:~$</span>
-                <span className="text-zinc-200">{item.cmd}</span>
+                <span className="text-zinc-200">{item.command}</span>
               </div>
               <div className="text-zinc-400 whitespace-pre-wrap pl-4 border-l border-zinc-900">
                 {item.output}
@@ -148,18 +181,19 @@ export function CommandPalette() {
           <div ref={historyEndRef} />
         </div>
 
-        {/* Input Bar */}
         <form
           onSubmit={handleCommandSubmit}
           className="border-t border-white/[0.08] bg-bg-deep px-4 py-3 flex items-center gap-2"
         >
-          <span className="font-mono text-xs text-terminal-green font-bold select-none">guest@murilo-os:~$</span>
-          
+          <span className="font-mono text-xs text-terminal-green font-bold select-none">
+            guest@murilo-os:~$
+          </span>
+
           <input
             ref={inputRef}
             type="text"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(event) => setInputValue(event.target.value)}
             className="flex-1 bg-transparent font-mono text-xs text-zinc-200 outline-none placeholder-zinc-700"
             placeholder="digite 'help' e aperte Enter..."
             aria-label="Entrada de comando no terminal"
