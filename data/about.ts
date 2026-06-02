@@ -37,10 +37,10 @@ export const aboutStats = [
     icon: "code",
   },
   {
-    label: "Caffeine",
-    value: "--",
-    unit: "ml",
-    description: "Defina sua métrica real de cafeína em data/about.ts",
+    label: "Energético",
+    value: "∞",
+    unit: "boost",
+    description: "Energia em loop para estudar, construir e entregar.",
     icon: "coffee",
   },
 ] as const;

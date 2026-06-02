@@ -166,7 +166,7 @@ export function ContactPanel() {
                 aria-label="Visitar meu GitHub"
               >
                 <GithubIcon className="w-4 h-4 text-zinc-500 group-hover:text-white" />
-                <span>GitHub /itsmurilo</span>
+                <span>GitHub /itsmuriloa</span>
               </a>
             </div>
 
