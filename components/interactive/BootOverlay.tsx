@@ -40,14 +40,14 @@ export function BootOverlay() {
   useEffect(() => {
     // sessionStorage and reduced motion are checked in the browser only.
     if (hasCompletedBootSequence()) {
-      const hideTimer = setTimeout(() => setVisible(false), 0);
-      return () => clearTimeout(hideTimer);
+      setVisible(false);
+      return;
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      const hideTimer = setTimeout(() => setVisible(false), 0);
-      return () => clearTimeout(hideTimer);
+      setVisible(false);
+      return;
     }
 
     let currentLogIndex = 0;

@@ -33,7 +33,6 @@ export const projectsData: ProjectItem[] = [
     stack: ["HTML", "CSS", "JavaScript", "DOM Manipulation"],
     technicalOutcome: "Controle de estados simples na tela, tratamento de entrada de texto e voz com APIs nativas e criação de interações visuais fluidas.",
     githubUrl: "https://github.com/itsmuriloa/numero-secreto",
-    demoUrl: "#",
   },
   {
     id: "athletes-registry",

@@ -11,6 +11,7 @@ export interface ProfileData {
   location: string;
   status: string;
   primaryStack: string[];
+  heroModules: string[];
 }
 
 export const profileData: ProfileData = {
@@ -24,4 +25,5 @@ export const profileData: ProfileData = {
   location: siteConfig.location,
   status: siteConfig.status,
   primaryStack: ["PHP", "MySQL", "React", "Docker", "Linux", "n8n"],
+  heroModules: ["REACT", "NEXT.JS", "PHP", "MYSQL", "DOCKER", "LINUX", "GIT"],
 };

@@ -98,7 +98,7 @@ export function RepositoryCard({ project, className }: RepositoryCardProps) {
               <span>Code</span>
             </a>
           )}
-          {project.demoUrl && (
+          {project.demoUrl && project.demoUrl !== "#" && (
             <a
               href={project.demoUrl}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-xs font-mono font-semibold text-terminal-orange-soft hover:text-white bg-bg-deep border border-terminal-orange/40 hover:bg-terminal-orange/10 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-terminal-orange outline-none shadow-[0_0_12px_rgba(255,92,36,0.12)]"

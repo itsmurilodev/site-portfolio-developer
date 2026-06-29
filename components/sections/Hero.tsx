@@ -4,7 +4,6 @@ import { GithubIcon } from "@/components/ui/BrandIcons";
 import { profileData } from "@/data/profile";
 import { siteConfig } from "@/lib/site";
 
-const modules = ["REACT", "NEXT.JS", "PHP", "MYSQL", "DOCKER", "LINUX", "GIT"];
 
 const lineClass = "flex min-w-max gap-4 px-5";
 const lineNumberClass = "w-6 shrink-0 select-none text-right text-[11px] text-zinc-700";
@@ -86,7 +85,7 @@ export function Hero() {
 
             <div className="max-w-2xl rounded-sm border border-white/[0.08] bg-bg-deep/70 p-3 font-mono text-[11px] uppercase tracking-wide text-zinc-500">
               <span className="text-terminal-green">LOADED_MODULES:</span>{" "}
-              <span className="text-zinc-300">{modules.join(" ")}</span>
+              <span className="text-zinc-300">{profileData.heroModules.join(" ")}</span>
             </div>
           </div>
 
