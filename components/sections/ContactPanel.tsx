@@ -126,7 +126,7 @@ export function ContactPanel() {
                 aria-label="Visitar meu perfil no LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4 text-zinc-500 group-hover:text-white" />
-                <span>LinkedIn /itsmuriloa</span>
+                <span>LinkedIn /itsmurilodev</span>
               </a>
 
               <a
@@ -137,7 +137,7 @@ export function ContactPanel() {
                 aria-label="Visitar meu GitHub"
               >
                 <GithubIcon className="w-4 h-4 text-zinc-500 group-hover:text-white" />
-                <span>GitHub /itsmuriloa</span>
+                <span>GitHub /itsmurilodev</span>
               </a>
             </div>
 

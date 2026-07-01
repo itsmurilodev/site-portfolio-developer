@@ -22,7 +22,7 @@ export const projectsData: ProjectItem[] = [
     description: "Projeto prático de CRUD estruturado, trabalhando o fluxo completo de persistência de dados: cadastro, listagem, edição e exclusão.",
     stack: ["PHP", "MySQL", "CRUD", "Backend", "Bootstrap"],
     technicalOutcome: "Resolução de fluxos de validação de formulários, sanitização de inputs de usuários contra SQL Injection e estruturação de rotas simples.",
-    githubUrl: "https://github.com/itsmuriloa/crud-php",
+    githubUrl: "https://github.com/itsmurilodev/crud-php",
   },
   {
     id: "secret-number",
@@ -32,7 +32,7 @@ export const projectsData: ProjectItem[] = [
     description: "Aplicação interativa baseada em lógica de programação e manipulação direta da DOM para criar um jogo de adivinhação dinâmico.",
     stack: ["HTML", "CSS", "JavaScript", "DOM Manipulation"],
     technicalOutcome: "Controle de estados simples na tela, tratamento de entrada de texto e voz com APIs nativas e criação de interações visuais fluidas.",
-    githubUrl: "https://github.com/itsmuriloa/numero-secreto",
+    githubUrl: "https://github.com/itsmurilodev/numero-secreto",
   },
   {
     id: "athletes-registry",
@@ -42,7 +42,7 @@ export const projectsData: ProjectItem[] = [
     description: "Exercício de fixação lógica focado em estrutura de dados, entrada e processamento de informações organizadas.",
     stack: ["JavaScript", "Logic", "Object Oriented"],
     technicalOutcome: "Domínio na criação de objetos, separação de responsabilidades no código e estruturação de algoritmos de busca e ordenação na memória.",
-    githubUrl: "https://github.com/itsmuriloa/cadastro-atletas",
+    githubUrl: "https://github.com/itsmurilodev/cadastro-atletas",
   },
   {
     id: "athletes-grades",
@@ -52,7 +52,7 @@ export const projectsData: ProjectItem[] = [
     description: "Projeto focado em algoritmos matemáticos e regras de negócio de cálculo de médias, eliminando a maior e a menor pontuação.",
     stack: ["JavaScript", "Arrays", "Business Rules", "Functional Programming"],
     technicalOutcome: "Manipulação avançada de arrays (sort, slice, reduce) para filtragem estatística e tratamento correto de regras de negócio em lógica pura.",
-    githubUrl: "https://github.com/itsmuriloa/notas-atletas",
+    githubUrl: "https://github.com/itsmurilodev/notas-atletas",
   },
   {
     id: "private-team-project",

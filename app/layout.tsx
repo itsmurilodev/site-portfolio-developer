@@ -62,20 +62,11 @@ export const metadata: Metadata = {
     siteName: "Murilo Alves (Murilo Dev) Portfolio",
     locale: "pt_BR",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Murilo Alves (Murilo Dev) | Desenvolvedor Web & Backend",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/opengraph-image"],
   },
   icons: {
     icon: "/favicon.ico",
